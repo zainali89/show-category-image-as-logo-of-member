@@ -1,0 +1,24 @@
+<!-- Place this code before the printing of image and then change the 
+$userPhoto is the default user logo variable
+
+replace $userPhoto with $imgLogo
+
+
+-->
+
+<?php 
+				// zain did to show category image if user has no image
+				$imgLogo = $userPhoto;
+				if($imgLogo =="/images/profile-profile-holder.png")
+				{
+					$categoryz = $user['profession_id'];
+					$myquery = mysql(brilliantDirectories::getDatabaseConfiguration('database'), "SELECT list_professions.image FROM list_professions WHERE list_professions.profession_id = '$categoryz'");
+					$myresult = mysql_fetch_array($myquery);
+					$imgLogo = $myresult['image'];
+					if($imgLogo == "")
+					{
+						//$imgLogo = $userPhoto;
+					}
+				}
+				// zain did to show category image if user has no image
+ ?>
